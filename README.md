@@ -6,10 +6,10 @@ This project is used to manage IAM permissions for Domain Manager users.
 
 ## Pre-requisites ##
 
-- The user accounts for all users must have been previously created (we
+- The user accounts for all users must have been created previously.  We
 recommend using the
 [`cisagov/cool-users-non-admin`](https://github.com/cisagov/cool-users-non-admin)
-repository to create users).
+repository to create users.
 - The User Services account and roles must have been created using [`cisagov/cool-accounts-userservices`](https://github.com/cisagov/cool-accounts-userservices).
 
 ## Usage ##
