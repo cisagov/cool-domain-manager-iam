@@ -18,7 +18,7 @@ variable "users" {
 variable "assume_access_dm_terraform_backend_policy_description" {
   type        = string
   description = "The description to associate with the IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources."
-  default     = "Allow assumption of the AccessDomainManagerTerraformBackend role in the Terraform account."
+  default     = "The IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources."
 }
 
 variable "assume_access_dm_terraform_backend_policy_name" {
@@ -30,7 +30,7 @@ variable "assume_access_dm_terraform_backend_policy_name" {
 variable "assume_provisiondomainmanager_policy_description" {
   type        = string
   description = "The description to associate with the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts."
-  default     = "Allow assumption of the ProvisionDomainManager role in the User Services accounts."
+  default     = "The IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts."
 }
 
 variable "assume_provisiondomainmanager_policy_name" {
