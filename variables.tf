@@ -39,6 +39,12 @@ variable "assume_provisiondomainmanager_policy_name" {
   default     = "UserServices-AssumeProvisionDomainManager"
 }
 
+variable "assume_sharedservices_provisionprivatednsrecords_policy_name" {
+  type        = string
+  description = "The name to assign the IAM policy that allows assumption of the role that allows access to provision DNS records in private zones in the Shared Services account."
+  default     = "SharedServices-AssumeProvisionPrivateDNSRecords"
+}
+
 variable "aws_region" {
   type        = string
   description = "The AWS region to deploy into (e.g. us-east-1)"
