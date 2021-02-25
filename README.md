@@ -2,7 +2,8 @@
 
 [![GitHub Build Status](https://github.com/cisagov/cool-domain-manager-iam/workflows/build/badge.svg)](https://github.com/cisagov/cool-domain-manager-iam/actions)
 
-This project is used to manage IAM permissions for Domain Manager users.
+This project is used to manage IAM permissions for
+[Domain Manager](https://github.com/cisagov/domain-manager-cicd) users.
 
 ## Pre-requisites ##
 
