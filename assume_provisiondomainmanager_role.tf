@@ -7,9 +7,7 @@ data "aws_iam_policy_document" "assume_provisiondomainmanager_role_doc" {
     actions = ["sts:AssumeRole"]
 
     resources = [
-      # TODO: Uncomment line below after Production role has been created
-      #       See https://github.com/cisagov/cool-accounts-userservices/pull/3
-      # data.terraform_remote_state.userservices_production.outputs.provisiondomainmanager_role.arn,
+      data.terraform_remote_state.userservices_production.outputs.provisiondomainmanager_role.arn,
       data.terraform_remote_state.userservices_staging.outputs.provisiondomainmanager_role.arn,
     ]
   }
