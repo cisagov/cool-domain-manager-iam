@@ -4,9 +4,9 @@
 # You must provide a value for each of these parameters.
 # ------------------------------------------------------------------------------
 
-variable "subnet_id" {
-  type        = string
-  description = "The ID of the AWS subnet to deploy into (e.g. subnet-0123456789abcdef0)"
+variable "users" {
+  type        = map(map(list(string)))
+  description = "A map containing the usernames of each Domain Manager user and a list of roles assigned to that user.  The only currently-defined role is \"provisioner\".  Example: { \"firstname1.lastname1\" = { \"roles\" = [ \"provisioner\" ] } }"
 }
 
 # ------------------------------------------------------------------------------
@@ -14,22 +14,47 @@ variable "subnet_id" {
 #
 # These parameters have reasonable defaults.
 # ------------------------------------------------------------------------------
-variable "ami_owner_account_id" {
+
+variable "assume_access_dm_terraform_backend_policy_description" {
   type        = string
-  description = "The ID of the AWS account that owns the Example AMI, or \"self\" if the AMI is owned by the same account as the provisioner."
-  default     = "self"
+  description = "The description to associate with the IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources."
+  default     = "The IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources."
 }
 
-variable "aws_availability_zone" {
+variable "assume_access_dm_terraform_backend_policy_name" {
   type        = string
-  description = "The AWS availability zone to deploy into (e.g. a, b, c, etc.)"
-  default     = "a"
+  description = "The name to assign the IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources."
+  default     = "AssumeAccessDomainManagerTerraformBackend"
+}
+
+variable "assume_provisiondomainmanager_policy_description" {
+  type        = string
+  description = "The description to associate with the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts."
+  default     = "The IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts."
+}
+
+variable "assume_provisiondomainmanager_policy_name" {
+  type        = string
+  description = "The name to assign the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts."
+  default     = "UserServices-AssumeProvisionDomainManager"
+}
+
+variable "assume_sharedservices_provisionprivatednsrecords_policy_name" {
+  type        = string
+  description = "The name to assign the IAM policy that allows assumption of the role that allows access to provision DNS records in private zones in the Shared Services account."
+  default     = "SharedServices-AssumeProvisionPrivateDNSRecords"
 }
 
 variable "aws_region" {
   type        = string
   description = "The AWS region to deploy into (e.g. us-east-1)"
   default     = "us-east-1"
+}
+
+variable "provisioner_users_group_name" {
+  type        = string
+  description = "The name of the group to be created for provisioner users."
+  default     = "domain_manager_provisioners"
 }
 
 variable "tags" {
