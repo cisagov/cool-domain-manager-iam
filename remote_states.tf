@@ -93,3 +93,18 @@ data "terraform_remote_state" "userservices_staging" {
 
   workspace = "staging"
 }
+
+data "terraform_remote_state" "userservices_networking_staging" {
+  backend = "s3"
+
+  config = {
+    encrypt        = true
+    bucket         = "cisa-cool-terraform-state"
+    dynamodb_table = "terraform-state-lock"
+    profile        = "cool-terraform-backend"
+    region         = "us-east-1"
+    key            = "cool-userservices-networking/terraform.tfstate"
+  }
+
+  workspace = "staging"
+}
