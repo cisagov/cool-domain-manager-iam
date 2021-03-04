@@ -7,11 +7,23 @@ This project is used to manage IAM permissions for
 
 ## Pre-requisites ##
 
-- The user accounts for all users must have been created previously.  We
-recommend using the
-[`cisagov/cool-users-non-admin`](https://github.com/cisagov/cool-users-non-admin)
-repository to create users.
-- The User Services account and roles must have been created using [`cisagov/cool-accounts-userservices`](https://github.com/cisagov/cool-accounts-userservices).
+- [Terraform](https://www.terraform.io/) installed on your system.
+- An accessible AWS S3 bucket to store Terraform state
+  (specified in [backend.tf](backend.tf)).
+- An accessible AWS DynamoDB database to store the Terraform state lock
+  (specified in [backend.tf](backend.tf)).
+- Access to all of the Terraform remote states specified in
+  [remote_states.tf](remote_states.tf).
+- User accounts for all users must have been created previously.  We
+  recommend using the
+  [`cisagov/cool-users-non-admin`](https://github.com/cisagov/cool-users-non-admin)
+  repository to create users.
+- User Services account and roles must have been created using
+  [`cisagov/cool-accounts-userservices`](https://github.com/cisagov/cool-accounts-userservices).
+- Terraform in [`cisagov/cool-sharedservices-networking`](https://github.com/cisagov/cool-sharedservices-networking)
+  must have been applied.
+- Terraform in [`cisagov/cool-userservices-networking`](https://github.com/cisagov/cool-userservices-networking)
+  must have been applied.
 
 ## Usage ##
 
