@@ -27,16 +27,16 @@ variable "assume_access_dm_terraform_backend_policy_name" {
   default     = "AssumeAccessDomainManagerTerraformBackend"
 }
 
-variable "assume_provisiondomainmanager_policy_description" {
+variable "assume_domainmanager_provisionaccount_policy_description" {
   type        = string
-  description = "The description to associate with the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts."
-  default     = "The IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts."
+  description = "The description to associate with the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts."
+  default     = "The IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts."
 }
 
-variable "assume_provisiondomainmanager_policy_name" {
+variable "assume_domainmanager_provisionaccount_policy_name" {
   type        = string
-  description = "The name to assign the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts."
-  default     = "UserServices-AssumeProvisionDomainManager"
+  description = "The name to assign the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts."
+  default     = "DomainManager-AssumeProvisionAccount"
 }
 
 variable "assume_sharedservices_provisionprivatednsrecords_policy_name" {

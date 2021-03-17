@@ -20,9 +20,8 @@ This project is used to manage IAM permissions for
   repository to create users.
 - User Services account and roles must have been created using
   [`cisagov/cool-accounts-userservices`](https://github.com/cisagov/cool-accounts-userservices).
-- Terraform in [`cisagov/cool-sharedservices-networking`](https://github.com/cisagov/cool-sharedservices-networking)
-  must have been applied.
-- Terraform in [`cisagov/cool-userservices-networking`](https://github.com/cisagov/cool-userservices-networking)
+- Terraform in
+  [`cisagov/cool-domain-manager-networking`](https://github.com/cisagov/cool-domain-manager-networking)
   must have been applied.
 
 ## Usage ##
@@ -64,8 +63,8 @@ This project is used to manage IAM permissions for
 |------|-------------|------|---------|:--------:|
 | assume_access_dm_terraform_backend_policy_description | The description to associate with the IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources. | `string` | `The IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources.` | no |
 | assume_access_dm_terraform_backend_policy_name | The name to assign the IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources. | `string` | `AssumeAccessDomainManagerTerraformBackend` | no |
-| assume_provisiondomainmanager_policy_description | The description to associate with the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts. | `string` | `The IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts.` | no |
-| assume_provisiondomainmanager_policy_name | The name to assign the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the User Services accounts. | `string` | `UserServices-AssumeProvisionDomainManager` | no |
+| assume_domainmanager_provisionaccount_policy_description | The description to associate with the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts. | `string` | `The IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts.` | no |
+| assume_domainmanager_provisionaccount_policy_name | The name to assign the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts. | `string` | `DomainManager-AssumeProvisionAccount` | no |
 | assume_sharedservices_provisionprivatednsrecords_policy_name | The name to assign the IAM policy that allows assumption of the role that allows access to provision DNS records in private zones in the Shared Services account. | `string` | `SharedServices-AssumeProvisionPrivateDNSRecords` | no |
 | aws_region | The AWS region to deploy into (e.g. us-east-1) | `string` | `us-east-1` | no |
 | provisioner_users_group_name | The name of the group to be created for provisioner users. | `string` | `domain_manager_provisioners` | no |
