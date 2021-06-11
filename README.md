@@ -47,33 +47,63 @@ This project is used to manage IAM permissions for
 | Name | Version |
 |------|---------|
 | terraform | ~> 0.12.0 |
-| aws | ~> 3.0 |
+| aws | ~> 3.38 |
 
 ## Providers ##
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.0 |
-| aws.users | ~> 3.0 |
+| aws | ~> 3.38 |
+| aws.users | ~> 3.38 |
 | terraform | n/a |
+
+## Modules ##
+
+No modules.
+
+## Resources ##
+
+| Name | Type |
+|------|------|
+| [aws_iam_group.provisioner_users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group) | resource |
+| [aws_iam_group_policy.assume_sharedservices_provisionprivatednsrecords_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy) | resource |
+| [aws_iam_group_policy_attachment.assume_access_dm_terraform_backend_role_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
+| [aws_iam_group_policy_attachment.assume_domainmanager_provisionaccount_role_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
+| [aws_iam_group_policy_attachment.assume_read_domainmanager_networking_state_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
+| [aws_iam_group_policy_attachment.assume_read_sharedservices_networking_state_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
+| [aws_iam_policy.assume_access_dm_terraform_backend_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_policy.assume_domainmanager_provisionaccount_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_user_group_membership.provisioner](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_group_membership) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_iam_policy_document.assume_access_dm_terraform_backend_role_doc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.assume_domainmanager_provisionaccount_role_doc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_policy_document.assume_sharedservices_provisionprivatednsrecords_role_doc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
+| [aws_iam_user.users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_user) | data source |
+| [terraform_remote_state.domainmanager_networking_staging](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
+| [terraform_remote_state.domainmanager_production](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
+| [terraform_remote_state.domainmanager_staging](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
+| [terraform_remote_state.sharedservices_networking_production](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
+| [terraform_remote_state.sharedservices_networking_staging](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
+| [terraform_remote_state.terraform](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
+| [terraform_remote_state.users](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/data-sources/remote_state) | data source |
 
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| assume_access_dm_terraform_backend_policy_description | The description to associate with the IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources. | `string` | `The IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources.` | no |
-| assume_access_dm_terraform_backend_policy_name | The name to assign the IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources. | `string` | `AssumeAccessDomainManagerTerraformBackend` | no |
-| assume_domainmanager_provisionaccount_policy_description | The description to associate with the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts. | `string` | `The IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts.` | no |
-| assume_domainmanager_provisionaccount_policy_name | The name to assign the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts. | `string` | `DomainManager-AssumeProvisionAccount` | no |
-| assume_sharedservices_provisionprivatednsrecords_policy_name | The name to assign the IAM policy that allows assumption of the role that allows access to provision DNS records in private zones in the Shared Services account. | `string` | `SharedServices-AssumeProvisionPrivateDNSRecords` | no |
-| aws_region | The AWS region to deploy into (e.g. us-east-1) | `string` | `us-east-1` | no |
-| provisioner_users_group_name | The name of the group to be created for provisioner users. | `string` | `domain_manager_provisioners` | no |
+| assume\_access\_dm\_terraform\_backend\_policy\_description | The description to associate with the IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources. | `string` | `"The IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources."` | no |
+| assume\_access\_dm\_terraform\_backend\_policy\_name | The name to assign the IAM policy that allows assumption of the role that allows access to Domain Manager-related Terraform backend resources. | `string` | `"AssumeAccessDomainManagerTerraformBackend"` | no |
+| assume\_domainmanager\_provisionaccount\_policy\_description | The description to associate with the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts. | `string` | `"The IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts."` | no |
+| assume\_domainmanager\_provisionaccount\_policy\_name | The name to assign the IAM policy that allows assumption of the role that allows sufficient permissions to provision all AWS resources for Domain Manager in the Domain Manager accounts. | `string` | `"DomainManager-AssumeProvisionAccount"` | no |
+| assume\_sharedservices\_provisionprivatednsrecords\_policy\_name | The name to assign the IAM policy that allows assumption of the role that allows access to provision DNS records in private zones in the Shared Services account. | `string` | `"SharedServices-AssumeProvisionPrivateDNSRecords"` | no |
+| aws\_region | The AWS region to deploy into (e.g. us-east-1) | `string` | `"us-east-1"` | no |
+| provisioner\_users\_group\_name | The name of the group to be created for provisioner users. | `string` | `"domain_manager_provisioners"` | no |
 | tags | Tags to apply to all AWS resources created | `map(string)` | `{}` | no |
 | users | A map containing the usernames of each Domain Manager user and a list of roles assigned to that user.  The only currently-defined role is "provisioner".  Example: { "firstname1.lastname1" = { "roles" = [ "provisioner" ] } } | `map(map(list(string)))` | n/a | yes |
 
 ## Outputs ##
 
-No output.
+No outputs.
 
 ## Notes ##
 
