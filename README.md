@@ -98,7 +98,7 @@ No modules.
 | assume\_sharedservices\_provisionprivatednsrecords\_policy\_name | The name to assign the IAM policy that allows assumption of the role that allows access to provision DNS records in private zones in the Shared Services account. | `string` | `"SharedServices-AssumeProvisionPrivateDNSRecords"` | no |
 | aws\_region | The AWS region to deploy into (e.g. us-east-1) | `string` | `"us-east-1"` | no |
 | provisioner\_users\_group\_name | The name of the group to be created for provisioner users. | `string` | `"domain_manager_provisioners"` | no |
-| tags | Tags to apply to all AWS resources created | `map(string)` | `{}` | no |
+| tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
 | users | A map containing the usernames of each Domain Manager user and a list of roles assigned to that user.  The only currently-defined role is "provisioner".  Example: { "firstname1.lastname1" = { "roles" = [ "provisioner" ] } } | `map(map(list(string)))` | n/a | yes |
 
 ## Outputs ##
