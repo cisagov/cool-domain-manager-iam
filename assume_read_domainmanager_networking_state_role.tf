@@ -10,5 +10,5 @@ resource "aws_iam_group_policy_attachment" "assume_read_domainmanager_networking
   # remote states (production and staging) point to the same
   # "assume_read_terraform_state_role_policy".  Therefore, it doesn't
   # matter which remote state we use here.
-  policy_arn = data.terraform_remote_state.domainmanager_networking_staging.outputs.read_terraform_state.assume_policy.arn
+  policy_arn = data.terraform_remote_state.domainmanager_networking_staging.outputs.read_terraform_state.assume_policy[0].arn
 }
